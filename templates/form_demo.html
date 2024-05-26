@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+    <title>KFZ-Versicherung Formular</title>
+</head>
+<body>
+    <h1>Versicherungsnehmer Informationen</h1>
+    <form action="/submit" method="post">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name"><br>
+        <label for="address">Adresse:</label><br>
+        <input type="text" id="address" name="address"><br>
+        <label for="birthdate">Geburtsdatum:</label><br>
+        <input type="date" id="birthdate" name="birthdate"><br>
+        <label for="license_number">Führerscheinnummer:</label><br>
+        <input type="text" id="license_number" name="license_number"><br>
+        <label for="car_model">Fahrzeugmodell:</label><br>
+        <input type="text" id="car_model" name="car_model"><br>
+        <label for="car_year">Fahrzeugjahr:</label><br>
+        <input type="number" id="car_year" name="car_year"><br>
+        <label for="insurance_type">Versicherungsart:</label><br>
+        <input type="text" id="insurance_type" name="insurance_type"><br><br>
+        <input type="submit" value="Absenden">
+    </form>
+</body>
+</html>
