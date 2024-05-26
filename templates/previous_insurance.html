@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Previous Insurance Details</title>
+</head>
+<body>
+    <h1>Previous Insurance Details</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.previous_insurer.label }}<br>
+            {{ form.previous_insurer(size=40) }}<br>
+            {% for error in form.previous_insurer.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.no_claim_bonus.label }}<br>
+            {{ form.no_claim_bonus() }}<br>
+            {% for error in form.no_claim_bonus.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+</body>
+</html>
