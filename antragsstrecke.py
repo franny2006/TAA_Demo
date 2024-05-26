@@ -22,7 +22,7 @@ appFrontend.config['MYSQL_DB'] = 'insurance'
 # cursor = db.cursor()
 
 class InsuranceForm(FlaskForm):
-    insurance_type = SelectField('Insurance Type', choices=[('vollkasko', 'Vollkasko'), ('teilkasko', 'Teilkasko')], validators=[DataRequired()])
+    insurance_type = SelectField('Versicherungsschutz', choices=[('vollkasko', 'Vollkasko'), ('teilkasko', 'Teilkasko')], validators=[DataRequired()])
     coverage_amount = IntegerField('Coverage Amount', validators=[DataRequired(), NumberRange(min=1000, max=1000000)])
     submit = SubmitField('Next')
 
