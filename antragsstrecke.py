@@ -20,7 +20,7 @@ def submit():
 
     # Hier kannst du die Daten weiterverarbeiten, z.B. in eine Datenbank speichern oder per E-Mail senden.
 
-    return f"Versicherungsnehmer {name} erfolgreich erfasst!!"
+    return f"Versicherungsnehmer {name} erfolgreich erfasst!"
 
 
 if __name__ == '__main__':
