@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Vorversicherung</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.vorversicherer.label }}<br>
+            {{ form.vorversicherer(size=40) }}<br>
+            {% for error in form.vorversicherer.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.schadenfreiheitsrabatt.label }}<br>
+            {{ form.schadenfreiheitsrabatt() }}<br>
+            {% for error in form.schadenfreiheitsrabatt.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.schadenfreiheitsrabatt_vk.label }}<br>
+            {{ form.schadenfreiheitsrabatt_vk() }}<br>
+            {% for error in form.schadenfreiheitsrabatt_vk.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}

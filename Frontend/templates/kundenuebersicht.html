@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Kundenübersicht</h1>
+    <div class="container features">
+    <table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Grund</th>
+            <th>Antragsteller</th>
+            <th>Adresse</th>
+            <th>Fahrzeug</th>
+            <th>Versicherungsbeginn</th>
+            <th scope="col" style="width: 10%">Details</th>
+            <th scope="col" style="width: 10%">Löschen</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for kunde in data %}
+        <tr>
+            <td>{{ kunde['id'] }}</td>
+            <td>{{ kunde['name'] }}</td>
+            <td>{{ kunde['vorname'] }}</td>
+            <td>{{ kunde['strasse'] }}</td>
+            <td>{{ kunde['plz'] }}</td>
+            <td>{{ kunde['ort'] }}</td>
+            <td><a href="edit_versicherungsnehmer?kunde_id={{ kunde['id'] }}">bearbeiten</a></td>
+            <td><a href="deleteOffer?kunde_id={{ kunde['id'] }}">löschen</a></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+
+
+    </table>
+</div>
+
+{% endblock %}

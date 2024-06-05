@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Fahrzeugdetails</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <H3>Versicherungsdaten</H3>
+        <p>
+            {{ form.grund.label }}<br>
+            {{ form.grund(size=100, value=data['grund']) }}<br>
+        </p>
+        <p>
+            {{ form.versicherungsbeginn.label }}<br>
+            {{ form.versicherungsbeginn(size=100, value=data['versicherungsbeginn']) }}<br>
+        </p>
+        <p>
+            {{ form.versicherungsart.label }}<br>
+            {{ form.versicherungsart(size=100, value=data['versicherungsart']) }}<br>
+        </p>
+        <p>
+            {{ form.deckungssumme.label }}<br>
+            {{ form.deckungssumme(size=100, value=data['deckungssumme']) }}<br>
+        </p>
+        <H3>KFZ-Daten</H3>
+        <p>
+            {{ form.hersteller.label }}<br>
+            {{ form.hersteller(size=100, value=data['hersteller']) }}<br>
+        </p>
+        <p>
+            {{ form.modell.label }}<br>
+            {{ form.modell(size=100, value=data['modell']) }}<br>
+        </p>
+        <p>
+            <TABLE>
+            <TR><TD>{{ form.modell.label }}</TD>
+                <TD>{{ form.hsn.label }}</TD>
+                <TD>{{ form.tsn.label }}</TD>
+                <TD>{{ form.baujahr.label }}</TD></TR>
+            <TR><TD>{{ form.modell(size=62, value=data['modell']) }}</TD>
+                <TD>{{ form.hsn(size=5, value=data['hsn']) }}</TD>
+                <TD>{{ form.tsn(size=5, value=data['tsn']) }}</TD>
+                <TD>{{ form.baujahr(size=10, value=data['baujahr']) }}</TD></TR>
+            </TABLE>
+        </p>
+        <H3>Nutzungsdaten</H3>
+        <p>
+            {{ form.jahresfahrleistung.label }}<br>
+            {{ form.jahresfahrleistung(size=100, value=data['jahresfahrleistung']) }}<br>
+        </p>
+        <p>
+            {{ form.nutzungsart.label }}<br>
+            {{ form.nutzungsart(size=100, value=data['nutzungsart']) }}<br>
+        </p>
+        <H3>Versicherungsnehmer</H3>
+        <p>
+            <TABLE>
+            <TR><TD>{{ form.anrede.label }}</TD>
+                <TD>{{ form.name.label }}</TD>
+                <TD>{{ form.vorname.label }}</TD></TR>
+            <TR><TD>{{ form.anrede(size=10, value=data['anrede']) }}</TD>
+                <TD>{{ form.name(size=40, value=data['name']) }}</TD>
+                <TD>{{ form.vorname(size=38, value=data['vorname']) }}</TD></TR>
+            </TABLE>
+        </p>
+        <p>
+            <TABLE>
+            <TR><TD>{{ form.strasse.label }}</TD>
+                <TD>{{ form.plz.label }}</TD>
+                <TD>{{ form.ort.label }}</TD></TR>
+            <TR><TD>{{ form.strasse(size=40, value=data['strasse']) }}</TD>
+                <TD>{{ form.plz(size=10, value=data['plz']) }}</TD>
+                <TD>{{ form.ort(size=38, value=data['ort']) }}</TD></TR>
+            </TABLE>
+        </p>
+        <p>
+            {{ form.geburtsdatum.label }}<br>
+            {{ form.geburtsdatum(size=100, value=data['geburtsdatum']) }}<br>
+        </p>
+        <p>
+            {{ form.fuehrerschein.label }}<br>
+            {{ form.fuehrerschein(size=100, value=data['fuehrerschein']) }}<br>
+        </p>
+        <H3>Vorversicherung</H3>
+        <p>
+            {{ form.vorversicherer.label }}<br>
+            {{ form.vorversicherer(size=100, value=data['vorversicherer']) }}<br>
+        </p>
+        <p>
+            {{ form.schadenfreiheitsrabatt.label }}<br>
+            {{ form.schadenfreiheitsrabatt(size=100, value=data['schadenfreiheitsrabatt']) }}<br>
+        </p>
+        <p>
+            {{ form.schadenfreiheitsrabatt_vk.label }}<br>
+            {{ form.schadenfreiheitsrabatt_vk(size=100, value=data['schadenfreiheitsrabatt_vk']) }}<br>
+        </p>
+
+    </form>
+
+
+
+{% endblock %}

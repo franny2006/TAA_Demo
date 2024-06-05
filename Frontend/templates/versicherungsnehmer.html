@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+    <h1>Versicherungsnehmer</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.anrede.label }}<br>
+            {{ form.anrede() }}<br>
+            {% for error in form.anrede.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=40) }}<br>
+            {% for error in form.name.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.vorname.label }}<br>
+            {{ form.vorname(size=40) }}<br>
+            {% for error in form.vorname.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.strasse.label }}<br>
+            {{ form.strasse(size=40) }}<br>
+            {% for error in form.strasse.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.plz.label }}<br>
+            {{ form.plz(size=7) }}<br>
+            {% for error in form.plz.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.ort.label }}<br>
+            {{ form.ort(size=40) }}<br>
+            {% for error in form.ort.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.geburtsdatum.label }}<br>
+            {{ form.geburtsdatum() }}<br>
+            {% for error in form.geburtsdatum.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.fuehrerschein.label }}<br>
+            {{ form.fuehrerschein() }}<br>
+            {% for error in form.fuehrerschein.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}

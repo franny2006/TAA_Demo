@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Fahrzeugdetails</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.hersteller.label }}<br>
+            {{ form.hersteller(size=20, id="hersteller") }}<br>
+            {% for error in form.hersteller.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.modell.label }}<br>
+            <select id="modell" name="modell">
+                {% for modell in form.modell.choices %}
+                    <option value="{{ modell[0] }}">{{ modell[1] }}</option>
+                {% endfor %}
+            </select><br>
+            {% for error in form.modell.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            <label for="hsn">HSN</label><br>
+            <input type="text" id="hsn" name="hsn" value="{{ form.hsn.data }}" readonly><br>
+        </p>
+        <p>
+            <label for="tsn">TSN</label><br>
+            <input type="text" id="tsn" name="tsn" value="{{ form.tsn.data }}" readonly><br>
+        </p>
+        <p>
+            {{ form.baujahr.label }}<br>
+            {{ form.baujahr() }}<br>
+            {% for error in form.baujahr.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            $('#hersteller').change(function(){
+                var hersteller = $(this).val();
+                $.ajax({
+                    url: 'http://127.0.0.1:5010/get_models',
+                    type: 'GET',
+                    data: { make: hersteller },
+                    success: function(models) {
+                        $('#modell').empty();
+                        $.each(models, function(index, model){
+                            $('#modell').append($('<option>', {
+                                value: model.model,
+                                text: model.model,
+                                'data-hsn': model.hsn,
+                                'data-tsn': model.tsn
+                            }));
+                        });
+                    }
+                });
+            });
+
+            $('#modell').change(function(){
+                var selectedModel = $(this).find('option:selected');
+                $('#hsn').val(selectedModel.data('hsn'));
+                $('#tsn').val(selectedModel.data('tsn'));
+            });
+        });
+    </script>
+
+{% endblock %}

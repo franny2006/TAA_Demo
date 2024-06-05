@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Antragsübersicht</h1>
+    <div class="container features">
+    <table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>ID</th>
+            <th>Grund</th>
+            <th>Antragsteller</th>
+            <th>Adresse</th>
+            <th>Fahrzeug</th>
+            <th>Versicherungsbeginn</th>
+            <th scope="col" style="width: 10%">Details</th>
+            <th scope="col" style="width: 10%">Löschen</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for antrag in data %}
+        <tr>
+            <td>{{ antrag.erfassung_id }}</td>
+            <td>{{ antrag['grund'] }}</td>
+            <td>{{ antrag['name'] }} {{ antrag['vorname'] }}</td>
+            <td>{{ antrag['strasse'] }}, {{ antrag['plz'] }} {{ antrag['ort'] }}</td>
+            <td>{{ antrag['marke'] }} {{ antrag['modell'] }}</td>
+            <td>{{ antrag['versicherungsbeginn'] }}</td>
+            <td><a href="antrag_detail?erfassung_id={{ antrag['erfassung_id'] }}">bearbeiten</a></td>
+            <td><a href="deleteOffer?antrag_id={{ antrag['erfassung_id'] }}">löschen</a></td>
+        </tr>
+    {% endfor %}
+
+    </tbody>
+
+
+    </table>
+</div>
+
+{% endblock %}

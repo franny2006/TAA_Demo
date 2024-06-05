@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Fahrzeugnutzung</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.jahresfahrleistung.label }}<br>
+            {{ form.jahresfahrleistung() }}<br>
+            {% for error in form.jahresfahrleistung.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.nutzungsart.label }}<br>
+            {{ form.nutzungsart(size=20) }}<br>
+            {% for error in form.nutzungsart.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}

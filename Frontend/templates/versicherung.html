@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Versicherungsdetails</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.grund.label }}<br>
+            {{ form.grund() }}<br>
+            {% for error in form.grund.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p><p>
+            {{ form.versicherungsbeginn.label }}<br>
+            {{ form.versicherungsbeginn() }}<br>
+            {% for error in form.versicherungsbeginn.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.versicherungsart.label }}<br>
+            {{ form.versicherungsart() }}<br>
+            {% for error in form.versicherungsart.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.deckungssumme.label }}<br>
+            {{ form.deckungssumme() }}<br>
+            {% for error in form.deckungssumme.errors %}
+                <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+
+{% endblock %}
+
